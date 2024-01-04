@@ -13,5 +13,5 @@ Deploy Stable Diffusion with CI/CD on Elestio
 You can open Stable Diffusion here:
 
     URL: https://[CI_CD_DOMAIN]
-    login: admin
+    login: root
     password: [ADMIN_PASSWORD]
