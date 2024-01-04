@@ -1,0 +1,38 @@
+version: "3"
+services:
+  stable-diffusion:
+    image: kestr3l/stable-diffusion-webui:${SOFTWARE_VERSION_TAG}
+    restart: always
+    secrets:
+      - gradio_auth
+    environment:
+      - NVIDIA_DISABLE_REQUIRE=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - UID=0
+      - GID=0
+      - DIR_GRADIO_AUTH=/run/secrets/gradio_auth
+      - DEBUG_MODE=0
+    volumes:
+      - ./storage/models:/home/user/stable-diffusion-webui/models
+      - ./storage/output:/home/user/stable-diffusion-webui/outputs
+      - ./storage/styles:/home/user/stable-diffusion-webui/styles
+      - ./storage/extensions:/home/user/stable-diffusion-webui/extensions
+      - ./config/ui-config-user.json:/home/user/stable-diffusion-webui/settings/ui-config-user.json
+      # - ${DIR_UI_SETTINGS}:/home/user/stable-diffusion-webui/settings/config-user.json
+      - ./config/webui-user.sh:/home/user/stable-diffusion-webui/settings/webui-user.sh
+      # SET FOR DEBUG PURPOSE
+      # - ./scripts/entrypoint.sh:/usr/local/bin/entrypoint.sh
+    ports:
+      - 172.17.0.1:17776:7860
+    privileged: true
+    ## For Nvidia GPU's - You probably want to uncomment this
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: all
+    #          capabilities: [gpu]
+secrets:
+  gradio_auth:
+    file: ./config/gradio_auth.txt
