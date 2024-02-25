@@ -1,8 +1,8 @@
-# Stable Diffusion CI/CD pipeline
+# Gradio CI/CD pipeline
 
 <a href="https://dash.elest.io/deploy?source=cicd&social=dockerCompose&url=https://github.com/elestio-examples/stable-diffusion"><img src="deploy-on-elestio.png" alt="Deploy on Elest.io" width="180px" /></a>
 
-Deploy Stable Diffusion with CI/CD on Elestio
+Deploy Gradio with CI/CD on Elestio
 
 <img src="stable-diffusion.png" style='width: 100%;'/>
 <br/>
@@ -10,7 +10,7 @@ Deploy Stable Diffusion with CI/CD on Elestio
 
 # Once deployed ...
 
-You can open Stable Diffusion here:
+You can open Gradio here:
 
     URL: https://[CI_CD_DOMAIN]
     login: root
@@ -44,7 +44,7 @@ For instance:
 
 ## Applying Changes
 
-Once the download is complete, return to the Stable Diffusion UI.
+Once the download is complete, return to the Gradio UI.
 
 Click on the Refresh button located at the top left of the UI.
 
